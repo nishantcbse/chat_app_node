@@ -1,4 +1,4 @@
-#Chat applications 
+## Chat applications 
 The application has been developed using two javascript frameworks nodejs for server side-services and angularjs for client-side.
 To install and run the application clone the repo
 
