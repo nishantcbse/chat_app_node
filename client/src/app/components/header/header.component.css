@@ -1,0 +1,30 @@
+.profile-drop{
+    right: 11px;
+    left: 88% !important;
+}
+.dropdown-toggle::after{
+	display:none;
+}
+.dropdown-menu {
+    background: rgba(255, 255, 255, 0.9);
+}
+.on-mobile{
+	display: none;
+}
+.nav-link.active{
+	color:#ffa500 !important;
+}
+@media (max-width: 767px){
+	.on-mobile{
+	  display: block;
+   }
+   .on-desktop{
+   	display: none;
+   }
+   .collapse.show {
+	    background: #fff;
+	    opacity: 0.8;
+	    padding: 10px 0;
+       position: relative;
+	}
+}

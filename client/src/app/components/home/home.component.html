@@ -1,0 +1,57 @@
+<div id="loader"></div>
+<app-header></app-header>
+<section class="margin_98 div_container">
+  <div class="container-fluid">
+    <div class="chat_block right" >
+        <div class="typing_user" *ngIf="istyping == true">
+           <span class="typing" ><b>{{typing_user}}</b> is typing...</span>
+        </div>
+          <div class="chat_msg">
+            <ul class="chat">
+             
+              <li   *ngFor=" let chat of chats | chatSort"  [ngClass]="{
+                'self':chat.username == user.username,
+                'other':chat.username != user.username
+               }">
+                 <div class="avatar"></div>
+                    <div class="msg">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <h6 class="msg_owner">{{ chat.name}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="pull-right">{{ chat.position | format_time }}</p>
+                          
+                        </div>
+                      </div>
+                      
+                      <p *ngIf="chat.message != null "> {{ chat.message }}</p>
+                      
+                    </div>
+                </li>
+               
+            </ul>
+            
+          </div>
+                <div class="chat_form">
+                    <div class="msj-rta macro">                         
+                        <div class="text text-r">
+                          <form class="form-horizontal" id="chatform" [formGroup]="chatmsgForm" (ngSubmit)="onSubmit(chatmsgForm)" >
+                            <div class="row" >
+                              <div class="col-sm-10" *ngIf="!file_form">
+                                <input name="text" formControlName='text' data-msg="msg" style="margin-left:6px;" placeholder="Type a message" autocomplete="off" class="form-control"  />
+                                 <show-errors [control]="chatmsgForm.controls.text"></show-errors>
+                              </div>
+                              <div class="col-sm-2" *ngIf="!file_form">
+                                <button class="btn btn-primary" type="submit" style="margin-left: -16px;" [disabled]="chatmsgForm.invalid">Send</button>
+                              </div>
+                            </div>
+                          </form>
+                            
+                        </div> 
+                    </div>
+                </div>
+        </div>
+    
+  </div>
+</section>

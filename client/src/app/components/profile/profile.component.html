@@ -1,0 +1,85 @@
+<app-header></app-header>
+
+<section class="margin-top_10">
+
+	<div class="Profile_container">
+		<div class="heading_container">
+			<h1 class="pro_h1">Profile</h1>
+			
+		</div>
+		<div class="row form_section">
+			<div class="col-sm-6">
+				<h2 class="pro_h2">Personal Information</h2>
+				<div class="profile_cover">
+
+					<img  [src]="placeholder_img" class="img_cover" *ngIf="user.img != '../../../assets/images/im_placeholder_profile.png'">
+					<div class="cover_p"></div>
+				</div>
+				<div class="profile_form">
+					<form class="change_p_form" id="editdetailsForm" [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+						<div class="button-green">
+	                    <input class="file-upload" id="img" type="file"  accept="image/*" name="img" formControlName='img' (change)="file_upload($event)"><span class="placeholder_img"><img [src]="placeholder_img" class="upload_img"></span>
+	                  	</div>
+						<show-errors [control]="editForm.controls.img"></show-errors>
+						<div class="form-group">
+    						<label for="name">Name</label>
+    						<input type="text" class="form-control" id="name" placeholder="Name" formControlName='name'> 
+    						<show-errors [control]="editForm.controls.name"></show-errors>
+  						</div>
+  						<div class="form-group">
+    						<label for="email">Email</label>
+    						<input type="text" class="form-control" id="email" placeholder="Email"  formControlName='username'  readonly="true"> 
+    						<show-errors [control]="editForm.controls.username"></show-errors>
+  						</div>
+  						
+  						<div class="button_div">
+  							<button type="submit" class="btn btn-default profile-btn" [disabled]="editForm.invalid">Update Information</button>
+  						</div>
+					</form>
+					
+				</div>
+				
+			</div>
+			<div class="col-sm-6">
+				<h2 class="pro_h2">Password</h2>
+				<div class="change_pass_div">
+					
+					<form class="change_p_form" [formGroup]="editPForm" (ngSubmit)="UpdatePassword(editPForm)">
+						<div class="form-group">
+    						<label for="current_password">Current password</label>
+    						<input type="Password" class="form-control" id="current_password" [ngClass]="{'input_error': erros.hasOwnProperty(current_password) != current_password }" placeholder="Current password" formControlName='current_password' name='current_password'>
+    						<show-errors [control]="editPForm.controls.current_password"></show-errors> 
+    						
+    						<span *ngIf="erros.hasOwnProperty(current_password) != current_password " class="help-block"><strong>{{ erros.current_password}}</strong></span>
+  						</div>
+  						<div class="form-group">
+    						<label for="new_password">New password</label>
+    						<input type="Password" class="form-control" id="new_password" [ngClass]="{'input_error': erros.hasOwnProperty(new_password) != new_password }" name='new_password' placeholder="New password" formControlName='new_password'><show-errors [control]="editPForm.controls.new_password"></show-errors>
+    						<span *ngIf="erros.hasOwnProperty(new_password) != new_password " class="help-block"><strong>{{ erros.new_password}}</strong></span>  
+  						</div>
+  						<div class="form-group">
+    						<label for="confirm_password">Confirm new password</label>
+    						<input type="Password" class="form-control" id="confirm_password" [ngClass]="{'input_error': erros.hasOwnProperty(confirm_password) != confirm_password}" placeholder="Confirm new password" formControlName='confirm_password'>
+    						<show-errors [control]="editPForm.controls.confirm_password"></show-errors>
+    						<span *ngIf="erros.hasOwnProperty(confirm_password) != confirm_password " class="help-block"><strong>{{ erros.confirm_password}}</strong></span> 
+  						</div>
+  						<div class="button_div">
+  							<button type="submit" class="btn-default change-btn" [disabled]="editPForm.invalid">Change Password</button>
+  						</div>
+					</form>
+				</div>
+				<h2 class="pro_h2">Logout</h2>
+				<div class="logout_div">
+					
+  					<div class="button_div">
+  							<button type="submit" class="btn btn-default" (click)="logout()">Logout</button>
+  					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</section>

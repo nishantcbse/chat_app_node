@@ -1,5 +1,5 @@
 #Chat applications 
-The application has been developed using two javascript frameworks nodejs for server side services and angularjs for clientside.
+The application has been developed using two javascript frameworks nodejs for server side-services and angularjs for client-side.
 To install and run the application clone the repo
 
 ```bash
@@ -19,7 +19,7 @@ then use 'npm' to install modules
 npm install
 ``` 
 ## NodeJs
-make sure you have Node v7 and above installed on your machine
+make sure you have Node installed on your machine
 and db:migrate installed
 ```bash
 npm install -g db-migrate

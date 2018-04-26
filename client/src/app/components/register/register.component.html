@@ -1,0 +1,34 @@
+<div class="pen-title"></div>
+<div class="rerun"></div>	
+<div class="container">
+		<div class="card"></div>
+		<div class="card">
+			<h1 class="title">Register</h1>
+			<div class="alert alert-danger card-error" *ngIf="error.message != null ">{{ error.message }}</div>
+			<div class="alert alert-success card-error" *ngIf="xsuccess.message != null ">{{ xsuccess.message }}</div>
+			<form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm)">
+				<div class="input-container">
+			      <input type="text" formControlName='name' required="required"/>
+			      <label for="#{label}">Name</label>
+			      <div class="bar"></div>
+			       <show-errors [control]="authForm.controls.name"></show-errors>
+			    </div>
+			    <div class="input-container">
+			      <input type="text" formControlName='username' required="required"/>
+			      <label for="#{label}">Username</label>
+			      <div class="bar"></div>
+			       <show-errors [control]="authForm.controls.username"></show-errors>
+			    </div>
+			    <div class="input-container">
+			      <input type="password" formControlName='password' required="required"/>
+			      <label for="#{label}">Password</label>
+			      <div class="bar"></div>
+			       <show-errors [control]="authForm.controls.password"></show-errors>
+			    </div>
+			    <div class="button-container">
+			      <button  [disabled]="authForm.invalid"><span>Go</span></button>
+			    </div>
+			    <div class="footer"><a href="#" routerLink="/login">Login</a></div>
+			</form>
+		</div>
+</div>

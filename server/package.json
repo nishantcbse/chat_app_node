@@ -1,0 +1,48 @@
+{
+  "name": "Chat-APP-API",
+  "author": "Anthony Galagade",
+  "license": "MIT",
+  "description": "This is just a sample chat app  api with unit test using mocha",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "bluebird": "^3.5.1",
+    "body-parser": "~1.4.3",
+    "client-sessions": "^0.8.0",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
+    "debug": "^2.2.0",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.9",
+    "express": "^4.13.3",
+    "express-session": "~1.14.1",
+    "jsonwebtoken": "^7.4.3",
+    "method-override": "~2.1.1",
+    "moment": "^2.20.1",
+    "mongoose": "~4.13.1",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.1",
+    "promise": "^7.1.1",
+    "redis": "^2.8.0",
+    "request": "^2.65.0",
+    "shortid": "^2.2.8",
+    "socket.io": "^2.0.4",
+    "socketio-jwt": "^4.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "rewire": "^2.5.0",
+    "supertest": "^1.1.0",
+    "expect.js": "^0.3.1",
+    "morgan": "~1.1.1",
+    "should": "^1.1.0",
+    "winston": "2.2.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "debug": "DEBUG=* node server.js",
+    "test": "mocha"
+  }
+}
