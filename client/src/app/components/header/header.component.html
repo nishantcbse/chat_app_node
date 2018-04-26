@@ -8,7 +8,10 @@
   <div class="navbar-collapse collapse justify-content-center" id="collapsingNavbar">
     <ul class="navbar-nav">
 
-     
+      <li class="nav-item dropdown">
+        
+        <a class="nav-link " href="#" routerLink="/home" [ngClass]="route_active('/home') ? 'active': '' ">home</a>
+      </li>
       <li class="nav-item on-mobile">
         <a class="dropdown-item" href="#" routerLink="/profile">View Profile
           </a>
@@ -21,13 +24,13 @@
   <span class="navbar-text small text-truncate mt-1 on-desktop">
 
     <nav class="nav nav-inline">
-      <a  class="nav-link dropdown-toggle " href="#"  routerLink="/profile" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+      <a  class="nav-link dropdown-toggle " href="#"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
-        <img class="img-fluid rounded-circle profile_avatar" [src]="user.img">
+        <img class="img-fluid rounded-circle profile_avatar" [src]="placeholder_img">
       </a>
       <div class="dropdown-menu profile-drop" aria-labelledby="navbarDropdown">
-          <div class="dropdown-item" href="#">{{ user.name }}
-            <span class="nav_desc">{{ user.email }}</span>
+          <div class="dropdown-item" href="#">
+            {{ user.name }}
           </div>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/#" routerLink="/profile">View Profile
@@ -42,4 +45,3 @@
 
   </span>
 </nav>
-<app-alert></app-alert>

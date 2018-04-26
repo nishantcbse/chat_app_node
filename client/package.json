@@ -29,7 +29,6 @@
     "bootstrap": "^4.0.0-beta.2",
     "core-js": "^2.4.1",
     "html2canvas": "^1.0.0-alpha.10",
-    "jquery": "^1.9.1",
     "jquery-contextmenu": "^3.0.0-beta.1",
     "ng-push-notification": "^1.1.0",
     "ng2-notifications": "^0.3.0",

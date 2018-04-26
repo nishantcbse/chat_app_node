@@ -7,13 +7,14 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  private user:any={
-    img:'../../../assets/images/im_placeholder_profile.png'
-  };
+  private user:any;
+  placeholder_img='../../../assets/images/im_placeholder_profile.png'
   router:Router;
   constructor(private _router:Router, private userservice: UserService) { 
-      this.router = _router;
-
+    this.router = _router;
+    this.userservice.get_user()
+    this.userservice.currentUser.subscribe(user => this.user = user);
+    
   }
 
   ngOnInit() {

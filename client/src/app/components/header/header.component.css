@@ -1,6 +1,7 @@
 .profile-drop{
     right: 11px;
-    left: 88% !important;
+    left: 160px !important;
+    width: 240px;
 }
 .dropdown-toggle::after{
 	display:none;

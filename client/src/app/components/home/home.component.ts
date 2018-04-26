@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener,AfterViewInit } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 import { UserService } from '../services/user.service';
 import { FormGroup, FormControl,Validators}   from '@angular/forms';
-import * as $ from 'jquery';
+
 @Component({
   selector: 'my-home',
   templateUrl: './home.component.html',
@@ -59,8 +59,9 @@ export class HomePageComponent implements OnInit {
 
   ngAfterViewInit(){
     setTimeout(()=>{
-      $('#loader').hide()
-      $('.div_container').show()
+      document.getElementById("loader").style.display ='none'
+
+      document.getElementsByClassName("div_container")[0].style.display ='block'
     }, 2000);
   }
   onSubmit(chatmsgForm: FormGroup): void{
@@ -73,11 +74,7 @@ export class HomePageComponent implements OnInit {
   }
   @HostListener('document:input', ['$event.target'])
   public onClick(e) {
-      console.log('element', $(e).attr('data-msg'))
-      // let $attr = $(e).attr('data-msg');
-      // if($attr =='msg'){
         this.chatService.observableTyping({'user':this.user.name})
-      // }
   }
 
 }

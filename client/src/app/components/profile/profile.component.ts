@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl,Validators,EmailValidator}   from '@angular/forms';
 import { Http, Headers } from '@angular/http';
 import { Router } from "@angular/router";
 import { UserService } from '../services/user.service';
 import { AlertService } from '../services/alert.service';
-import * as $ from 'jquery';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -30,6 +29,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   	this.userservice.get_user()
   	this.userservice.currentUser.subscribe(user => this.user = user)
+
   	this.initForm()
   }
 
@@ -66,7 +66,7 @@ export class ProfileComponent implements OnInit {
            this.user.name = $user.json().data.name
           this.userservice.updateUser(this.user)
         });
-        $('#img').val('');
+        document.getElementById('img').value ='';
          this.alertService.success('Personal Information has been updated');
        }else{
          this.alertService.error(data.erros);
@@ -105,12 +105,22 @@ export class ProfileComponent implements OnInit {
     })
    
   }
+  ngAfterViewInit(){
+    setTimeout(()=>{
+      document.getElementById("loader").style.display ='none'
+
+      document.getElementsByClassName("div_container")[0].style.display ='block'
+    }, 2000);
+  }
   file_upload(elm){
     this.image = elm.target.files;
     let tag = URL.createObjectURL(elm.target.files[0])
     let img = this.userservice.getimage(tag);
-    // this.user.img = this.img_uploaded
-    $('.upload_img').attr('src', tag).show()
+    let image = document.getElementsByClassName('upload_img')
+    for (let i = 0; i < image.length; i++) {
+        image[i].src = tag;
+        image[i].style.display ='block';
+    }
   }
   logout(){
   	this.userservice.logout();

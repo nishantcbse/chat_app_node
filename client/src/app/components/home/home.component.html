@@ -1,14 +1,13 @@
 <div id="loader"></div>
+<div class="div_container">
 <app-header></app-header>
-<section class="margin_98 div_container">
+<section class="margin_98">
   <div class="container-fluid">
     <div class="chat_block right" >
-        <div class="typing_user" *ngIf="istyping == true">
-           <span class="typing" ><b>{{typing_user}}</b> is typing...</span>
-        </div>
           <div class="chat_msg">
+            <span class="typing" *ngIf="istyping == true"><b>{{typing_user}}</b> is typing...</span>
             <ul class="chat">
-             
+              
               <li   *ngFor=" let chat of chats | chatSort"  [ngClass]="{
                 'self':chat.username == user.username,
                 'other':chat.username != user.username
@@ -55,3 +54,4 @@
     
   </div>
 </section>
+</div>
