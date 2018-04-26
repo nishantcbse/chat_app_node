@@ -62,7 +62,7 @@ npm start
 cd client
 ng serve
 ```
-## Testing 
+## Testing application 
 ## Nodejs
  ```bash
 cd server
