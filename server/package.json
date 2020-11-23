@@ -21,7 +21,7 @@
     "jsonwebtoken": "^7.4.3",
     "method-override": "~2.1.1",
     "moment": "^2.20.1",
-    "mongoose": "~4.13.1",
+    "mongoose": "~5.7.5",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",
     "promise": "^7.1.1",
